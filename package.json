@@ -1,0 +1,15 @@
+{
+  "name": "demo-selenium-javascript",
+  "version": "1.0.0",
+  "description": "Demo Selenium JavaScript",
+  "main": "demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^93.0.1",
+    "selenium-webdriver": "^4.0.0-rc-1"
+  }
+}
