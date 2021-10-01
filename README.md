@@ -51,6 +51,24 @@ npm install --save chromedriver
 ```
 
 
+## Run
+
+Run:
+
+```sh
+./demo.js
+```
+
+Or you can run with Node explicity:
+
+```sh
+node demo.js
+```
+
+The script will launch your local Chrome web browser,
+connect to Google, and send a query for kittens.
+
+
 ## Troubleshooting
 
 
