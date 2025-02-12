@@ -6,10 +6,10 @@
 //
 // ## Tracking
 //
-//   * Package: demo-selenium-javasript
-//   * Version: 1.1.0
+//   * Package: demo-selenium-javascript
+//   * Version: 1.2.0
 //   * Created: 2019-11-02T00:00:00Z
-//   * Updated: 2021-10-01T13:05:10Z
+//   * Updated: 2025-02-12T04:10:01Z
 //   * License: GPL-2.0-or-greater or for custom license contact us
 //   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ///
@@ -25,7 +25,7 @@ async function demo(){
     // Initialize
     let driver = await new Builder().forBrowser("chrome").build();
 
-    // Fetch
+    // Navigate to a website
     await driver.get("https://google.com");
             
     // Search
