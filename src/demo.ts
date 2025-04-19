@@ -43,6 +43,14 @@ async function demo(){
         // Navigate to a website
         await driver.get("https://google.com");
                 
+        // Do these links exist? This demonstrates `linkText`.
+        await driver.findElement(By.linkText("About"));
+        await driver.findElement(By.linkText("Privacy"));
+
+        // Do these buttons exist? This demonstrates `xpath`.
+        await driver.findElement(By.xpath("//input[@type='submit' and @name='btnK' and @value='Google Search']"));
+        await driver.findElement(By.xpath("//input[@type='submit' and @name='btnI' and @value=\"I'm Feeling Lucky\"]"));
+
         // Search
         const searchBox = await driver.findElement(By.name('q'));
         await searchBox.sendKeys('kittens');

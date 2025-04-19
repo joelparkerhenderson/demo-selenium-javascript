@@ -24,11 +24,9 @@ options.addArguments('--verbose'); // Enable verbose logging.
 options.addArguments('--disable-notifications'); // Disable notifications such as popups.
 options.setUserPreferences({ "profile.default_content_setting_values.cookies": 2 }); // Reject cookies.
 
-// For Node 10 and above, it's better to use strict assert which can be imported
-// as named import and renamed for convenience as assert. Named exports avoid
-// many of the problems mentioned in the question, problems that come from using
-// single module.exports CommonJS export and importing it as default import. In
-// TypeScript 2.7, --esmoduleinterop option was added to help with that.
+// Import strict assert, renamed for convenience as assert, to avoid many of the
+// problems using single module.exports CommonJS export and with default import.
+// In TypeScript, --esmoduleinterop option was added to help with that.
 import { strict as assert } from 'assert';
 assert(true);
 
@@ -44,7 +42,15 @@ async function demo(){
 
         // Navigate to a website
         await driver.get("https://google.com");
-                
+
+        // Do these links exist? This demonstrates `linkText`.
+        await driver.findElement(By.linkText("About"));
+        await driver.findElement(By.linkText("Privacy"));
+
+        // Do these buttons exist? This demonstrates `xpath`.
+        await driver.findElement(By.xpath("//input[@type='submit' and @name='btnK' and @value='Google Search']"));
+        await driver.findElement(By.xpath("//input[@type='submit' and @name='btnI' and @value=\"I'm Feeling Lucky\"]"));
+
         // Search
         await driver.findElement(By.name("q")).sendKeys("kittens",Key.RETURN);
     
@@ -52,7 +58,7 @@ async function demo(){
         var title = await driver.getTitle();
         console.log('Title is:',title);
 
-                // Example to wait for a button to be clickable
+        // Example to wait for a button to be clickable
         // const button = await driver.wait(until.elementLocated(By.id('submit-button')), 10000);
         // await driver.wait(until.elementIsVisible(button), 5000);
         // await button.click();
