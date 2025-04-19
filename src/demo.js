@@ -24,6 +24,14 @@ options.addArguments('--verbose'); // Enable verbose logging.
 options.addArguments('--disable-notifications'); // Disable notifications such as popups.
 options.setUserPreferences({ "profile.default_content_setting_values.cookies": 2 }); // Reject cookies.
 
+// For Node 10 and above, it's better to use strict assert which can be imported
+// as named import and renamed for convenience as assert. Named exports avoid
+// many of the problems mentioned in the question, problems that come from using
+// single module.exports CommonJS export and importing it as default import. In
+// TypeScript 2.7, --esmoduleinterop option was added to help with that.
+import { strict as assert } from 'assert';
+assert(true);
+
 async function demo(){
 
     // Initialize the driver

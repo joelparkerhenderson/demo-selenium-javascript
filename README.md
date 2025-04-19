@@ -64,8 +64,10 @@ npm audit fix
 Run:
 
 ```sh
-npm install typescript@latest ts-node@latest
-npm install @types/selenium-webdriver
+npm install typescript@latest 
+npm install ts-node@latest
+npm install --save-dev @types/node 
+npm install --save-dev @types/selenium-webdriver
 ```
 
 Create a file `tsconfig.json` for TypeScript configuration:

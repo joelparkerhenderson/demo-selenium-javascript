@@ -14,6 +14,7 @@
 //   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ///
 
+
 // Import Selenium Webdriver parts.
 import { Browser, Builder, By, Key, until } from 'selenium-webdriver';
 
@@ -23,6 +24,12 @@ const options = new Options();
 options.addArguments('--verbose'); // Enable verbose logging.
 options.addArguments('--disable-notifications'); // Disable notifications such as popups.
 options.setUserPreferences({ "profile.default_content_setting_values.cookies": 2 }); // Reject cookies.
+
+// Import strict assert, renamed for convenience as assert, to avoid many of the
+// problems using single module.exports CommonJS export and with default import.
+// In TypeScript, --esmoduleinterop option was added to help with that.
+import { strict as assert } from 'assert';
+assert(true);
 
 async function demo(){
 
