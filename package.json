@@ -8,9 +8,13 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@types/selenium-webdriver": "^4.1.28",
-    "chromedriver": "^133.0.0",
-    "selenium-webdriver": "^4.28.1"
+    "chromedriver": "^135.0.2",
+    "npm": "^11.3.0",
+    "selenium-webdriver": "^4.31.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

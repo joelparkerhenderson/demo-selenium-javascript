@@ -7,21 +7,29 @@
 // ## Tracking
 //
 //   * Package: demo-selenium-javascript
-//   * Version: 1.2.0
+//   * Version: 1.3.0
 //   * Created: 2019-11-02T00:00:00Z
-//   * Updated: 2025-02-12T04:10:01Z
+//   * Updated: 2025-04-19T12:50:49Z
 //   * License: GPL-2.0-or-greater or for custom license contact us
 //   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ///
 
-// Initialize Selenium Webdriver, which is the manager
-import { Builder, By, until } from 'selenium-webdriver';
+// Import Selenium Webdriver parts.
+import { Browser, Builder, By, Key, until } from 'selenium-webdriver';
+
+/// Import chromedriver options that you can set as you wish.
+import { Options } from "selenium-webdriver/chrome.js";
+const options = new Options();
+options.addArguments('--verbose'); // Enable verbose logging.
+options.addArguments('--disable-notifications'); // Disable notifications such as popups.
+options.setUserPreferences({ "profile.default_content_setting_values.cookies": 2 }); // Reject cookies.
 
 async function demo(){
 
     // Initialize
     const driver = await new Builder()
-    .forBrowser('chrome') // Choose 'firefox' or 'edge' as needed
+    .forBrowser(Browser.CHROME) // Choose other browsers as you wish.
+    .setChromeOptions(options) // Set options for other browsers as you wish.
     .build();
 
     try {
@@ -64,7 +72,6 @@ async function demo(){
 
 
     } finally {
-        // Done
         await driver.quit();
     }
     

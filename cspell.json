@@ -3,7 +3,10 @@
     "ignorePaths": [],
     "dictionaryDefinitions": [],
     "dictionaries": [],
-    "words": [],
+    "words": [
+        "chromedriver",
+        "xattr"
+    ],
     "ignoreWords": [],
     "import": []
 }
