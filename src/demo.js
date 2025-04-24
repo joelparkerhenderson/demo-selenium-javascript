@@ -7,9 +7,9 @@
 // ## Tracking
 //
 //   * Package: demo-selenium-javascript
-//   * Version: 1.3.0
+//   * Version: 1.4.0
 //   * Created: 2019-11-02T00:00:00Z
-//   * Updated: 2025-04-19T12:50:49Z
+//   * Updated: 2025-04-24T13:58:02Z
 //   * License: GPL-2.0-or-greater or for custom license contact us
 //   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ///
@@ -54,7 +54,8 @@ async function demo(){
         //
         //      <p id="id-example-1">Lorem Ipsum</p>
         //
-        let elementById = await driver.findElement(By.id("id-example-1"));
+        const elementById = await driver.findElement(By.id("id-example-1"));
+        console.log(await elementById.getAttribute('outerHTML'));
 
         // Find an element by name . 
         //
@@ -64,7 +65,8 @@ async function demo(){
         //
         //     <p name="name-example-1">Lorem Ipsum</p>
         //
-        let elementByName = await driver.findElement(By.name("name-example-1"));
+        const elementByName = await driver.findElement(By.name("name-example-1"));
+        console.log(await elementByName.getAttribute('outerHTML'));
 
         // File an element by class name.
         //
@@ -74,8 +76,9 @@ async function demo(){
         //
         //     <p name="name-example-1">Lorem Ipsum</p>
         //
-        let elementByClassName = await driver.findElement(By.className("class-example-1"));
-        
+        const elementByClassName = await driver.findElement(By.className("class-example-1"));
+        console.log(await elementByClassName.getAttribute('outerHTML'));
+
         // Find an element that is a link by it's text.
         // 
         // This demonstrates `By.linkText`.
@@ -84,7 +87,8 @@ async function demo(){
         //
         //     <a href="https://example.com">Link Example 1</a>
         //
-        let elementByLinkText = await driver.findElement(By.linkText("Link Example 1"));
+        const elementByLinkText = await driver.findElement(By.linkText("Link Example 1"));
+        console.log(await elementByLinkText.getAttribute('outerHTML'));
 
         // Find an element by XPath query.
         //        
@@ -94,7 +98,8 @@ async function demo(){
         //
         //     <input type=submit>
         //
-        let elementByXPath = await driver.findElement(By.xpath("//input[@type='submit']"));
+        const elementByXPath = await driver.findElement(By.xpath("//input[@type='submit']"));
+        console.log(await elementByXPath.getAttribute('outerHTML'));
 
         ///
         // Interact with form inputs in various ways.
@@ -107,6 +112,7 @@ async function demo(){
         //     <input type="text" id="text-example-1">
         //
         const text = await driver.findElement(By.id('text-example-1-id'));
+        console.log(await text.getAttribute('outerHTML'));
         await text.sendKeys('hello');
 
         // Click a checkbox input.
@@ -116,7 +122,8 @@ async function demo(){
         //     <input type="checkbox" id="checkbox-example-1-id">
         //
         const checkbox = await driver.findElement(By.id('checkbox-example-1-id'));
-        checkbox.click();
+        console.log(await checkbox.getAttribute('outerHTML'));
+        await checkbox.click();
 
         // Click a radio input.
         //
@@ -125,9 +132,10 @@ async function demo(){
         //     <input type="radio" id="radio-example-1-id-option-1-id">
         //
         const radio = await driver.findElement(By.id('radio-example-1-option-1-id'));
-        radio.click();
+        console.log(await radio.getAttribute('outerHTML'));
+        await radio.click();
 
-        // Choose a select input
+        // Choose a select input option.
         //
         // Example HTML:
         //
@@ -135,74 +143,22 @@ async function demo(){
         //       <option>alfa</option>
         //       <option>bravo</option>
         //       <option>charlie</option>
-        //      </select>
+        //     </select>
         //
-        const select = new Select(await driver.findElement(By.id('select-example-1-id')));
-        await select.selectByVisibleText("alfa");
+        const selectElement = await driver.findElement(By.id('select-example-1-id'));
+        console.log(await selectElement.getAttribute('outerHTML'));
+        const select = await new Select(selectElement);
+        await select.selectByIndex(0);
+        const option = await select.getFirstSelectedOption();
+        console.log(await option.getAttribute('outerHTML'));
 
+    } catch (err) {
+        console.log(err.message);
+        console.log(err.stack);
     } finally {
         await driver.quit();
     }
     
-}
-
-async function demo_with_google(){
-
-    // Initialize the driver
-    let driver = await new Builder()
-    .forBrowser(Browser.CHROME) // Choose other browsers as you wish.
-    .setChromeOptions(options) // Set options for other browsers as you wish.
-    .build();
-
-    try {
-
-        // Navigate to a website
-        await driver.get("https://google.com");
-
-        // Do these links exist? This demonstrates `linkText`.
-        await driver.findElement(By.linkText("About"));
-        await driver.findElement(By.linkText("Privacy"));
-
-        // Do these buttons exist? This demonstrates `xpath`.
-        await driver.findElement(By.xpath("//input[@type='submit' and @name='btnK' and @value='Google Search']"));
-        await driver.findElement(By.xpath("//input[@type='submit' and @name='btnI' and @value=\"I'm Feeling Lucky\"]"));
-
-        // Search
-        await driver.findElement(By.name("q")).sendKeys("kittens",Key.RETURN);
-    
-        // Output
-        var title = await driver.getTitle();
-        console.log('Title is:',title);
-
-        // Example to wait for a button to be clickable
-        // const button = await driver.wait(until.elementLocated(By.id('submit-button')), 10000);
-        // await driver.wait(until.elementIsVisible(button), 5000);
-        // await button.click();
-
-        // Example to check the URL after clicking a button
-        // const currentUrl = await driver.getCurrentUrl();
-        // console.log('Current URL:', currentUrl);
-
-        // Example to wait and accept an alert
-        // await driver.wait(until.alertIsPresent(), 5000);
-        // const alert = await driver.switchTo().alert();
-        // console.log('Alert Text:', await alert.getText());
-        // await alert.accept();
-
-        // Example to take a screenshot and save it as 'screenshot.png'
-        // const screenshot = await driver.takeScreenshot();
-        // fs.writeFileSync('screenshot.png', screenshot, 'base64');
-
-        // Example of using `wait` for an element to be clickable
-        // const element = await driver.wait(until.elementLocated(By.id('example-element')), 10000);
-        // await driver.wait(until.elementIsVisible(element), 5000);
-        // console.log('Element is visible!');
-
-    } finally {
-        await driver.quit();
-    }
- 
 }
 
 demo().catch((err) => console.error(err));
-//demo_with_google().catch((err) => console.error(err));

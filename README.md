@@ -171,8 +171,8 @@ To update your Chrome webdriver:
 ## Tracking
 
 * Package: demo-selenium-javascript
-* Version: 1.3.0
+* Version: 1.4.0
 * Created: 2019-11-02T00:00:00Z
-* Updated: 2025-04-19T12:50:49Z
+* Updated: 2025-04-24T13:58:02Z
 * License: GPL-2.0-or-greater or for custom license contact us
 * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
