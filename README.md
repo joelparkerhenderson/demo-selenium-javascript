@@ -1,11 +1,16 @@
 # Demo Selenium JavaScript & TypeScript
 
-Demonstration of 
-[Selenium](https://www.selenium.dev/) browser automation testing using 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript),
-[TypeScript](https://en.wikipedia.org/wiki/TypeScript), 
-[Node](https://nodejs.org/), and
-[ChromeDriver](https://developer.chrome.com/docs/chromedriver).
+Demonstration of:
+
+* [Selenium](https://www.selenium.dev/) browser automation testing
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [TypeScript](https://en.wikipedia.org/wiki/TypeScript)
+* [Node](https://nodejs.org/)
+* [ChromeDriver](https://developer.chrome.com/docs/chromedriver)
+
+Many more examples are here:
+
+* [SeleniumHQ examples](https://github.com/SeleniumHQ/seleniumhq.github.io/tree/trunk/examples)
 
 ## Install
 

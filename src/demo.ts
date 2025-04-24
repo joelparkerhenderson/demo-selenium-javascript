@@ -14,7 +14,6 @@
 //   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ///
 
-
 // Import Selenium Webdriver parts.
 import { Browser, Builder, By, Key, until } from 'selenium-webdriver';
 
@@ -32,6 +31,122 @@ import { strict as assert } from 'assert';
 assert(true);
 
 async function demo(){
+
+    // Initialize
+    const driver = await new Builder()
+    .forBrowser(Browser.CHROME) // Choose other browsers as you wish.
+    .setChromeOptions(options) // Set options for other browsers as you wish.
+    .build();
+
+    try {
+        // Navigate to a website
+        await driver.get("https://testingexamples.github.io");
+
+        ///
+        // Find elements in various ways.
+        ///
+
+        // Find an element by id. 
+        //
+        // This demonstrates `By.id`.
+        //
+        // Example HTML: 
+        //
+        //      <p id="id-example-1">Lorem Ipsum</p>
+        //
+        let elementById = await driver.findElement(By.id("id-example-1"));
+
+        // Find an element by name . 
+        //
+        // This demonstrates `By.name`.
+        //
+        // Example HTML:
+        //
+        //     <p name="name-example-1">Lorem Ipsum</p>
+        //
+        let elementByName = await driver.findElement(By.name("name-example-1"));
+
+        // File an element by cascading style sheet (CSS) class.
+        //
+        // This demonstrates `By.css`.
+        //
+        // Example HTML:
+        //
+        //     <p name="name-example-1">Lorem Ipsum</p>
+        //
+        let elementByClass = await driver.findElement(By.css("class-example-1"));
+        
+        // Find an element that is a link by it's text.
+        // 
+        // This demonstrates `By.linkText`.
+        //
+        // Example HTML:
+        //
+        //     <a href="https://example.com">Link Example 1</a>
+        //
+        let elementByLinkText = await driver.findElement(By.linkText("Link Example 1"));
+
+        // Find an element by XPath query.
+        //        
+        // This demonstrates `By.xpath`.
+        //
+        // Example HTML:
+        //
+        //     <input type=submit>
+        //
+        let elementByXPath = await driver.findElement(By.xpath("//input[@type='submit']"));
+
+        ///
+        // Interact with form inputs in various ways.
+        ///
+
+        // Type in a text input.
+        //
+        // Example HTML:
+        //
+        //     <input type="text" id="text-example-1">
+        //
+        const text = await driver.findElement(By.id('text-example-1-id'));
+        await text.sendKeys('hello');
+
+        // Click a checkbox input.
+        //
+        // Example HTML:
+        //
+        //     <input type="checkbox" id="checkbox-example-1-id">
+        //
+        const checkbox = await driver.findElement(By.name('checkbox-example-1'));
+        checkbox.click();
+
+        // Click a radio input.
+        //
+        // Example HTML:
+        //
+        //     <input type="radio" id="radio-example-1-id">
+        //
+        const radio = await driver.findElement(By.name('radio-example-1-id'));
+        radio.click();
+
+        // Choose a select input
+        //
+        // Example HTML:
+        //
+        //     <select id="select-example-1-id">
+        //       <option>alfa</option>
+        //       <option>bravo</option>
+        //       <option>charlie</option>
+        //      </select>
+        //
+        const select = new Select(await driver.findElement(By.name('select-example-1-id')));
+        await select.selectByVisibleText("alfa");
+
+    } finally {
+        await driver.quit();
+    }
+    
+}
+
+async function demo_of_google(){
 
     // Initialize
     const driver = await new Builder()
@@ -93,3 +208,4 @@ async function demo(){
 }
 
 demo().catch((err) => console.error(err));
+demo_of_google().catch((err) => console.error(err));
