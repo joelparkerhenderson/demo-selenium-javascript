@@ -46,18 +46,18 @@ async function demo(){
         // Find elements in various ways.
         ///
 
-        // Find an element by id. 
+        // Find an element by id.
         //
         // This demonstrates `By.id`.
         //
-        // Example HTML: 
+        // Example HTML:
         //
         //      <p id="id-example-1">Lorem Ipsum</p>
         //
         const elementById = await driver.findElement(By.id("id-example-1"));
         console.log(await elementById.getAttribute('outerHTML'));
 
-        // Find an element by name . 
+        // Find an element by name .
         //
         // This demonstrates `By.name`.
         //
@@ -80,7 +80,7 @@ async function demo(){
         console.log(await elementByClassName.getAttribute('outerHTML'));
 
         // Find an element that is a link by it's text.
-        // 
+        //
         // This demonstrates `By.linkText`.
         //
         // Example HTML:
@@ -91,7 +91,7 @@ async function demo(){
         console.log(await elementByLinkText.getAttribute('outerHTML'));
 
         // Find an element by XPath query.
-        //        
+        //
         // This demonstrates `By.xpath`.
         //
         // Example HTML:
@@ -158,7 +158,7 @@ async function demo(){
     } finally {
         await driver.quit();
     }
-    
+
 }
 
 demo().catch((err) => console.error(err));

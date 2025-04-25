@@ -1,12 +1,11 @@
-# Demo Selenium JavaScript & TypeScript
+# Demo Selenium JavaScript
 
 Demonstration of:
 
 * [Selenium](https://www.selenium.dev/) browser automation testing
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-* [TypeScript](https://en.wikipedia.org/wiki/TypeScript)
-* [Node](https://nodejs.org/)
-* [ChromeDriver](https://developer.chrome.com/docs/chromedriver)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript) programming language
+* [Node](https://nodejs.org/) runtime built on Chrome's V8 JavaScript engine
+* [ChromeDriver](https://developer.chrome.com/docs/chromedriver) extends Webdriver by adding Chromium-specific capabilities
 
 Many more examples are here:
 
@@ -16,7 +15,7 @@ Many more examples are here:
 
 ### Install Node and NPM
 
-Install Node and NPM from https://nodejs.org/
+Install Node and NPM from <https://nodejs.org/>
 
 Confirm:
 
@@ -51,7 +50,7 @@ npm install --save selenium-webdriver@latest
 Install Google chromedriver:
 
 ```sh
-npm install --save chromedriver@latest  
+npm install --save chromedriver@latest
 ```
 
 ### Update
@@ -60,25 +59,8 @@ Run:
 
 ```sh
 npm install npm@latest
-npm upgrade    
+npm upgrade
 npm audit fix
-```
-
-## Install TypeScript (optional)
-
-Run:
-
-```sh
-npm install typescript@latest 
-npm install ts-node@latest
-npm install --save-dev @types/node 
-npm install --save-dev @types/selenium-webdriver
-```
-
-Create a file `tsconfig.json` for TypeScript configuration:
-
-```sh
-npx tsc --init
 ```
 
 ## Run
@@ -86,24 +68,29 @@ npx tsc --init
 Run:
 
 ```sh
-./src/demo.ts
+./src/demo.js
 ```
-
-The script will launch your local Chrome web browser,
-connect to Google, and send a query for kittens.
 
 If you prefer, you can run with Node explicitly:
 
 ```sh
-ts-node src/demo.ts
+node src/demo.js
 ```
 
-### Troubleshooting “chromedriver” Not Opened 
+The script will do three things:
+
+1. Launch your local Chrome web browser to view the free open source testing examples web page <https://testingexamples.github.io>.
+
+2. Interact with the web page in various ways, such as finding elements, clicking on elements, filling in form inputs, etc.
+
+3. Print some typical HTML tag output that demonstrates the program is running successfully.
+
+### Troubleshooting “chromedriver” Not Opened
 
 If you get this kind of error message:
 
 ```txt
-“chromedriver” Not Opened. Apple could not verify “chromedriver” 
+“chromedriver” Not Opened. Apple could not verify “chromedriver”
 is free of malware that may harm your Mac or compromise your privacy.
 ```
 
@@ -136,8 +123,8 @@ Try adjusting your system settings:
 If you get this kind of error message:
 
 ```txt
-UnhandledPromiseRejectionWarning: 
-SessionNotCreatedError: session not created: 
+UnhandledPromiseRejectionWarning:
+SessionNotCreatedError: session not created:
 This version of ChromeDriver only supports Chrome version …
 ```
 
@@ -146,7 +133,7 @@ Then you may need to harmonize your Chrome browser app and your Chrome webdriver
 If you use macOS brew, then upgrade chromedriver:
 
 ```sh
-brew upgrade chromedriver 
+brew upgrade chromedriver
 ```
 
 To update your Chrome browser app:
