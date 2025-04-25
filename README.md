@@ -17,21 +17,25 @@ Many more examples are here:
 
 Install Node and NPM from <https://nodejs.org/>
 
-Confirm:
+Run this to confirm your version:
 
 ```sh
 node -v
 ```
 
+Output should be at least:
+
 ```stdout
 v23.6.1
 ```
 
-Confirm:
+Run this to confirm your version:
 
 ```sh
 npm -v
 ```
+
+Output should be at least:
 
 ```stdout
 11.2.0
