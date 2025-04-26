@@ -79,7 +79,7 @@ async function demo(){
         const elementByClassName = await driver.findElement(By.className("class-example-1"));
         console.log(await elementByClassName.getAttribute('outerHTML'));
 
-        // Find an element that is a link by it's text.
+        // Find an element that is a link by its text.
         //
         // This demonstrates `By.linkText`.
         //
