@@ -55,7 +55,7 @@ async function demo(){
         //      <p id="id-example-1">Lorem Ipsum</p>
         //
         const elementById = await driver.findElement(By.id("id-example-1"));
-        console.log(await elementById.getAttribute('outerHTML'));
+        console.log(await elementById.getAttribute("outerHTML"));
 
         // Find an element by name .
         //
@@ -66,7 +66,7 @@ async function demo(){
         //     <p name="name-example-1">Lorem Ipsum</p>
         //
         const elementByName = await driver.findElement(By.name("name-example-1"));
-        console.log(await elementByName.getAttribute('outerHTML'));
+        console.log(await elementByName.getAttribute("outerHTML"));
 
         // File an element by class name.
         //
@@ -77,7 +77,7 @@ async function demo(){
         //     <p name="name-example-1">Lorem Ipsum</p>
         //
         const elementByClassName = await driver.findElement(By.className("class-example-1"));
-        console.log(await elementByClassName.getAttribute('outerHTML'));
+        console.log(await elementByClassName.getAttribute("outerHTML"));
 
         // Find an element that is a link by its text.
         //
@@ -88,7 +88,7 @@ async function demo(){
         //     <a href="https://example.com">Link Example 1</a>
         //
         const elementByLinkText = await driver.findElement(By.linkText("Link Example 1"));
-        console.log(await elementByLinkText.getAttribute('outerHTML'));
+        console.log(await elementByLinkText.getAttribute("outerHTML"));
 
         // Find an element by XPath query.
         //
@@ -99,7 +99,7 @@ async function demo(){
         //     <input type=submit>
         //
         const elementByXPath = await driver.findElement(By.xpath("//input[@type='submit']"));
-        console.log(await elementByXPath.getAttribute('outerHTML'));
+        console.log(await elementByXPath.getAttribute("outerHTML"));
 
         ///
         // Interact with form inputs in various ways.
@@ -111,9 +111,9 @@ async function demo(){
         //
         //     <input type="text" id="text-example-1">
         //
-        const text = await driver.findElement(By.id('text-example-1-id'));
-        console.log(await text.getAttribute('outerHTML'));
-        await text.sendKeys('hello');
+        const text = await driver.findElement(By.id("text-example-1-id"));
+        console.log(await text.getAttribute("outerHTML"));
+        await text.sendKeys("hello");
 
         // Click a checkbox input.
         //
@@ -121,8 +121,8 @@ async function demo(){
         //
         //     <input type="checkbox" id="checkbox-example-1-id">
         //
-        const checkbox = await driver.findElement(By.id('checkbox-example-1-id'));
-        console.log(await checkbox.getAttribute('outerHTML'));
+        const checkbox = await driver.findElement(By.id("checkbox-example-1-id"));
+        console.log(await checkbox.getAttribute("outerHTML"));
         await checkbox.click();
 
         // Click a radio input.
@@ -131,8 +131,8 @@ async function demo(){
         //
         //     <input type="radio" id="radio-example-1-id-option-1-id">
         //
-        const radio = await driver.findElement(By.id('radio-example-1-option-1-id'));
-        console.log(await radio.getAttribute('outerHTML'));
+        const radio = await driver.findElement(By.id("radio-example-1-option-1-id"));
+        console.log(await radio.getAttribute("outerHTML"));
         await radio.click();
 
         // Choose a select input option.
@@ -145,12 +145,12 @@ async function demo(){
         //       <option>charlie</option>
         //     </select>
         //
-        const selectElement = await driver.findElement(By.id('select-example-1-id'));
-        console.log(await selectElement.getAttribute('outerHTML'));
+        const selectElement = await driver.findElement(By.id("select-example-1-id"));
+        console.log(await selectElement.getAttribute("outerHTML"));
         const select = await new Select(selectElement);
         await select.selectByIndex(0);
         const option = await select.getFirstSelectedOption();
-        console.log(await option.getAttribute('outerHTML'));
+        console.log(await option.getAttribute("outerHTML"));
 
     } catch (err) {
         console.log(err.message);
