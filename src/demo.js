@@ -74,7 +74,7 @@ async function demo(){
         //
         // Example HTML:
         //
-        //     <p name="name-example-1">Lorem Ipsum</p>
+        //     <p class="class-example-1">Lorem Ipsum</p>
         //
         const elementByClassName = await driver.findElement(By.className("class-example-1"));
         console.log(await elementByClassName.getAttribute("outerHTML"));
